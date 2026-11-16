@@ -12,3 +12,7 @@ Open questions and missing information. Gaps are never filled by guessing.
 | G-006 | Agent Skills specification (agentskills.io, `spec/` folder) not read | Taxonomy | Low | Open | https://agentskills.io | 2026-11-16 | |
 | G-007 | Unread parts of long docs pages (S-001, S-002, S-003, S-005) — mainly the rest of Hooks and MCP tool search | General | Low | Open | Continue reading from where it stopped | 2026-11-16 | |
 | G-008 | Dynamic workflows, agent teams, and cross-session messaging — built-in orchestration mechanisms not yet researched | H — Agent-managed methodology | High | Open | https://code.claude.com/docs/en/workflows , https://code.claude.com/docs/en/agents | 2026-11-16 | |
+| G-009 | Batch 2 skills not inspected (listed in `references/repositories/superpowers-vs-pocock-skills.md`, section 5) | Several | Medium | Open | The listed SKILL.md files | 2026-11-16 | |
+| G-010 | `obra/superpowers-evals` ("drill" eval harness) returned 404 — private, moved, or renamed? Only possible source of evidence for Superpowers | B — Evaluation | High | Open | Superpowers docs, release notes, or author | 2026-11-16 | |
+| G-011 | Licenses taken from repository pages (MIT) — LICENSE files not opened | General | Low | Open | LICENSE files | 2026-11-16 | |
+| G-012 | A "software-factory" skill appears in recent mattpocock/skills commits but not in the engineering/productivity listings — where is it? | H — Agent-managed methodology | Low | Open | Repository tree | 2026-11-16 | |
