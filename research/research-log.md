@@ -14,6 +14,19 @@
 
 ---
 
+## 2026-11-16 — מנה 1: תיעוד רשמי של Claude Code ו-anthropics/skills
+- מקורות שנבדקו: S-001 עד S-013.
+- ממצאים עיקריים (פירוט ב-`references/documentation/claude-code-extension-mechanisms.md`):
+  - אומתו ההגדרות של Skill, Agent, Hook ו-MCP. Plugin הוא שכבת אריזה ולא סוג רכיב. Slash commands מוזגו ל-Skills.
+  - הוראות (CLAUDE.md, Skills) הן בקשה; Hooks והרשאות הם אכיפה. Hook שנכשל לא חוסם כברירת מחדל.
+  - לכל רכיב יש עלות context קבועה (התיאור שלו) גם כשלא משתמשים בו.
+  - ל-baseline כבר יש יכולות מובנות (Explore, Plan, `/code-review`, `/debug`, auto memory, dynamic workflows). רכיב חיצוני צריך להוכיח שיפור מעבר להן.
+  - Anthropic ממליצה על פיתוח מונחה-הערכה מול baseline (C-005), ו-skill-creator מממש זאת (C-001).
+  - ב-anthropics/skills יש 19 Skills; רובם לא קשורים להנדסת תוכנה. נרשמו 4 רלוונטיים (C-001 עד C-004).
+- החלטות: אין. כלל סיווג ל-Plugin נוסף לטקסונומיה.
+- פערים חדשים: G-003 עד G-008. G-003 דורש החלטה של המשתמשת.
+- עבודה שנותרה: מנה 2 — Superpowers ו-Matt Pocock Skills.
+
 ## 2026-11-16 — שלב 0: הקמה ויישור למסמך המשימה
 - מה נעשה:
   - נוצרו מבנה התיקיות, README.md, CLAUDE.md ותבניות קובצי המחקר.

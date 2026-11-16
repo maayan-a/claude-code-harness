@@ -39,7 +39,7 @@
 
 | מנה | תוכן | סטטוס |
 |---|---|---|
-| 1 | תיעוד רשמי של Claude Code ו-`anthropics/skills` — אימות הגדרות סוגי הרכיבים | טרם התחיל |
+| 1 | תיעוד רשמי של Claude Code ו-`anthropics/skills` — אימות הגדרות סוגי הרכיבים | הושלם (2026-11-16) |
 | 2 | Superpowers, Matt Pocock Skills | טרם התחיל |
 | 3 | Spec Kit, BMAD Method, GSD | טרם התחיל |
 | 4 | Aider, Cline, Roo Code, AGENTS.md | טרם התחיל |
