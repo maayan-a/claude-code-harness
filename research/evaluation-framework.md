@@ -8,7 +8,7 @@
 | `component_name` | השם המדויק | |
 | `original_source` | URL של הריפו / המקור | |
 | `original_author` | יוצר או ארגון מאומת | `לא ידוע` אם לא אומת |
-| `component_type` | סוג הרכיב (ציר 1) | `Skill` / `Agent` / `Hook` / `MCP` / `CLI` / `Framework` / `Tool` / `Methodology` |
+| `component_type` | סוג הרכיב (ציר 1) | `Skill` / `Agent` / `Hook` / `MCP` / `CLI` / `Framework` / `Tool` / `Methodology` / `Instructions` |
 | `domain` | תחום רלוונטי (ציר 2) | |
 | `subcategory` | האחריות הספציפית | |
 | `problem_solved` | איזו בעיה הוא פותר | |

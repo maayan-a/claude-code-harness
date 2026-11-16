@@ -18,6 +18,7 @@
 | `Framework` | מערכת או אוסף שמשלב כמה סוגי רכיבים | הגדרת הפרויקט | הוגדר |
 | `Tool` | תוכנה או שירות מחוץ ל-Claude Code | הגדרת הפרויקט | הוגדר |
 | `Methodology` | שיטת עבודה או פרקטיקה הנדסית, ללא מימוש תוכנה מחייב | הגדרת הפרויקט | הוגדר |
+| `Instructions` | קובץ הוראות קבוע שנטען ל-context בלי הפעלה מפורשת: CLAUDE.md, `.claude/rules/`, AGENTS.md, output style, סט כללים (למשל Cursor rules) | S-006, S-007; החלטה 2026-11-16 (G-003) | הוגדר |
 
 ### מקרי גבול
 
@@ -26,8 +27,8 @@
 | Plugin | "שכבת האריזה": תיקייה עם manifest שמאגדת Skills, Agents, Hooks ושרתי MCP ליחידה אחת שמותקנת מ-marketplace (S-004, S-007) | Plugin אינו סוג רכיב. Plugin שמאגד כמה סוגים נרשם כ-`Framework`, וכל רכיב בתוכו נרשם בנפרד עם `parent_component` |
 | Slash command (`.claude/commands/`) | "Custom commands have been merged into skills" (S-001) | נרשם כ-`Skill` |
 | Skill עם `context: fork` | Skill שרץ בתוך Subagent (S-001) | נרשם כ-`Skill`, עם הערה בשדה `how_it_works` |
-| CLAUDE.md, `.claude/rules/`, AGENTS.md | קובצי הוראות שנטענים בתחילת סשן או לפי נתיב (S-006) | **פתוח — G-003** |
-| Output style | הוראות לתפקיד, טון ופורמט לכל הסשן (S-007) | **פתוח — G-003** |
+| CLAUDE.md, `.claude/rules/`, AGENTS.md | קובצי הוראות שנטענים בתחילת סשן או לפי נתיב (S-006) | נרשם כ-`Instructions` |
+| Output style | הוראות לתפקיד, טון ופורמט לכל הסשן (S-007) | נרשם כ-`Instructions` |
 | יכולות מובנות (Explore, Plan, `/code-review`, `/debug`, `/batch`, auto memory, dynamic workflows) | חלק מ-Claude Code עצמו (S-002, S-007) | לא נרשמות כרכיבים. הן חלק מה-baseline, ומתועדות ב-`references/documentation/claude-code-extension-mechanisms.md` |
 
 ---
