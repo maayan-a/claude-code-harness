@@ -14,6 +14,19 @@ One entry per session or batch, newest first.
 
 ---
 
+## 2026-11-16 — Batch 3: Spec Kit, BMAD Method, GSD
+- Sources inspected: S-034 to S-047.
+- Key findings (details in `references/repositories/speckit-bmad-gsd.md`):
+  - The original GSD repository is archived (2026-06-26); development continues as GSD Core (open-gsd). The mission link was annotated.
+  - None of the three frameworks publishes measured evidence (0 of 5 methodology frameworks so far).
+  - Spec Kit has the strongest consistency checks: `clarify` (max 5 questions with recommended answers), read-only `analyze`, and `converge` (spec vs. code with typed gaps).
+  - BMAD's `bmad-project-context` keeps agent instructions verified and small; most BMAD workflow logic is hidden in runtime scripts (G-013).
+  - GSD focuses on context rot: fresh-context subagents, `.planning/` state, pause/resume, context-usage health check.
+  - Six patterns now appear independently across batches 2–3 (section 3 of the findings file) — candidates for the harness core.
+- Decisions: none.
+- New gaps: G-013 to G-015.
+- Remaining work: Batch 4 — Aider, Cline, Roo Code, AGENTS.md.
+
 ## 2026-11-16 — Batch 2: Superpowers and Matt Pocock Skills
 - Sources inspected: S-014 to S-033 (README and 9 skills/hooks from Superpowers; README and 10 skills from Pocock).
 - Key findings (details in `references/repositories/superpowers-vs-pocock-skills.md`):

@@ -41,7 +41,7 @@ Phases 1–7 are research only. Phases 8–9 start only after an explicit decisi
 |---|---|---|
 | 1 | Claude Code official docs and `anthropics/skills` — verify component type definitions | Done (2026-11-16) |
 | 2 | Superpowers, Matt Pocock Skills | Done (2026-11-16) |
-| 3 | Spec Kit, BMAD Method, GSD | Not started |
+| 3 | Spec Kit, BMAD Method, GSD | Done (2026-11-16) |
 | 4 | Aider, Cline, Roo Code, AGENTS.md | Not started |
 | 5 | Catalogs: Awesome Cursor Rules, Awesome Claude Skills, Awesome Context Engineering | Not started |
 | 6 | Evaluation and benchmarking | Not started |
