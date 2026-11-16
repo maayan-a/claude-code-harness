@@ -46,3 +46,17 @@ Sources not yet inspected are listed in `mission.md`.
 | S-031 | mattpocock/skills — wayfinder | https://github.com/mattpocock/skills/tree/main/skills/engineering/wayfinder | primary | Matt Pocock | 2026-11-16 | 2 | SKILL.md read |
 | S-032 | mattpocock/skills — handoff | https://github.com/mattpocock/skills/tree/main/skills/productivity/handoff | primary | Matt Pocock | 2026-11-16 | 2 | SKILL.md read |
 | S-033 | mattpocock/skills — grilling | https://github.com/mattpocock/skills/tree/main/skills/productivity/grilling | primary | Matt Pocock | 2026-11-16 | 2 | SKILL.md read |
+| S-034 | github/spec-kit — README | https://github.com/github/spec-kit | primary | GitHub | 2026-11-16 | 3 | Release version not shown on page; mentions "Spec Kit 1.0" |
+| S-035 | spec-kit — spec-driven.md (philosophy) | https://github.com/github/spec-kit/blob/main/spec-driven.md | primary | GitHub | 2026-11-16 | 3 | Read in full |
+| S-036 | spec-kit — templates/commands/analyze.md | https://github.com/github/spec-kit/blob/main/templates/commands/analyze.md | primary | GitHub | 2026-11-16 | 3 | Read in full |
+| S-037 | spec-kit — templates/commands/clarify.md | https://github.com/github/spec-kit/blob/main/templates/commands/clarify.md | primary | GitHub | 2026-11-16 | 3 | Read in full |
+| S-038 | spec-kit — templates/commands/converge.md | https://github.com/github/spec-kit/blob/main/templates/commands/converge.md | primary | GitHub | 2026-11-16 | 3 | Read in full |
+| S-039 | spec-kit — integrations folder listing | https://github.com/github/spec-kit/tree/main/src/specify_cli/integrations | primary | GitHub | 2026-11-16 | 3 | Confirms a `claude` integration among ~44 agents |
+| S-040 | bmad-code-org/BMAD-METHOD — README | https://github.com/bmad-code-org/BMAD-METHOD | primary | BMad Code, LLC | 2026-11-16 | 3 | Stable v6.12; v7 alpha on main |
+| S-041 | BMAD-METHOD — skills/method listing | https://github.com/bmad-code-org/BMAD-METHOD/tree/main/skills/method | primary | BMad Code, LLC | 2026-11-16 | 3 | 16 skill folders listed |
+| S-042 | BMAD-METHOD — bmad-project-context | https://github.com/bmad-code-org/BMAD-METHOD/tree/main/skills/method/bmad-project-context | primary | BMad Code, LLC | 2026-11-16 | 3 | SKILL.md read |
+| S-043 | BMAD-METHOD — bmad-code-review | https://github.com/bmad-code-org/BMAD-METHOD/tree/main/skills/method/bmad-code-review | primary | BMad Code, LLC | 2026-11-16 | 3 | SKILL.md read; workflow is printed by a script at runtime (not readable) |
+| S-044 | BMAD-METHOD — bmad-agent-architect | https://github.com/bmad-code-org/BMAD-METHOD/tree/main/skills/method/bmad-agent-architect | primary | BMad Code, LLC | 2026-11-16 | 3 | SKILL.md read |
+| S-045 | gsd-build/get-shit-done (archived) | https://github.com/gsd-build/get-shit-done | primary | TÂCHES (per page) | 2026-11-16 | 3 | Archived 2026-06-26; moved to open-gsd/gsd-core |
+| S-046 | open-gsd/gsd-core — README | https://github.com/open-gsd/gsd-core | primary | open-gsd | 2026-11-16 | 3 | Mentions version 1.7.0 |
+| S-047 | gsd-core — docs/COMMANDS.md | https://github.com/open-gsd/gsd-core/blob/next/docs/COMMANDS.md | primary | open-gsd | 2026-11-16 | 3 | First ~100K of ~163K characters read |

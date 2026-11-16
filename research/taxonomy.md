@@ -59,7 +59,14 @@ The starting domains in `mission.md` (section 5) are only a search starting poin
 | Module and interface design | C-019 | 2 |
 | Code review against standards and spec | C-020 | 2 |
 | Primary-source research in background | C-022 | 2 |
-| Session retrospective, improving the setup | C-023 | 2 |
+| Session retrospective, improving the setup | C-023, C-035 | 2–3 |
+| Spec-driven development frameworks | C-027, C-033, C-037 | 3 |
+| Project principles checked by tools | C-028 | 3 |
+| Ambiguity detection and clarification | C-029, C-032 | 3 |
+| Cross-artifact consistency checks | C-030 | 3 |
+| Spec-vs-code verification | C-031 | 3 |
+| Role personas | C-034 | 3 |
+| Session pause/resume and state integrity | C-038 | 3 |
 
 ### Top-level categories
 <!-- Filled in during phase 4 -->

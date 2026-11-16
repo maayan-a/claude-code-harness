@@ -87,7 +87,7 @@ The domains below are a starting point. New domains are added only when supporte
 **Goal:** more effective agents with less context, fewer tokens, and fewer unnecessary tool calls.
 
 Sources:
-- https://github.com/gsd-build/get-shit-done
+- https://github.com/gsd-build/get-shit-done — archived 2026-06-26; continued as https://github.com/open-gsd/gsd-core (S-045)
 - https://github.com/yzfly/awesome-context-engineering
 - https://github.com/graphify — **[to verify]** looks like a user/organization, not a repository
 - https://github.com/Xerjio/xerj — **[to verify]** unknown source

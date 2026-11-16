@@ -16,3 +16,6 @@ Open questions and missing information. Gaps are never filled by guessing.
 | G-010 | `obra/superpowers-evals` ("drill" eval harness) returned 404 — private, moved, or renamed? Only possible source of evidence for Superpowers | B — Evaluation | High | Open | Superpowers docs, release notes, or author | 2026-11-16 | |
 | G-011 | Licenses taken from repository pages (MIT) — LICENSE files not opened | General | Low | Open | LICENSE files | 2026-11-16 | |
 | G-012 | A "software-factory" skill appears in recent mattpocock/skills commits but not in the engineering/productivity listings — where is it? | H — Agent-managed methodology | Low | Open | Repository tree | 2026-11-16 | |
+| G-013 | BMAD workflow logic is printed by scripts at runtime — cannot be inspected without running it (not allowed by CLAUDE.md rule 3). Can the scripts' source be read instead? | H — Agent-managed methodology | Medium | Open | BMAD source tree (workflow script files) | 2026-11-16 | |
+| G-014 | Batch 3 parts not inspected (listed in `references/repositories/speckit-bmad-gsd.md`, section 5) | Several | Medium | Open | The listed files | 2026-11-16 | |
+| G-015 | BMAD v7 is in alpha with an ETA of mid-November 2026 — findings may change soon; revisit after release | H — Agent-managed methodology | Low | Open | BMAD releases | 2026-11-16 | |
