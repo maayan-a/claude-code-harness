@@ -59,13 +59,17 @@ Do not mix the axes in descriptions or comparisons.
 ## 9. Continuity between sessions
 - At session start: read `README.md`, the latest entry in `research/research-log.md`, and `research/research-gaps.md`.
 - Work proceeds in batches according to the plan in `README.md`, continuing from the last completed batch.
+- Each batch is a separate task on its own branch (see section 10).
 - At the end of each batch: add an entry to `research/research-log.md` — sources inspected, findings, decisions, remaining work.
 - Decisions are recorded with a date and rationale.
 - Do not claim full coverage — report what was actually inspected.
 
 ## 10. Git
 - The repository is public. Never commit secrets, personal information, or whole files written by others.
-- Commit and push at the end of each batch, with a message describing the batch.
+- Every task gets its own branch from an up-to-date `main` (e.g. `research/batch-2-superpowers`, `chore/...`, `docs/...`). Never commit directly to `main`.
+- Commit on the task branch. When the task is done, present a summary of the changes and wait.
+- **Merge to `main` and push only after the user's explicit approval.** Nothing is pushed to GitHub before that, including the task branch.
+- After an approved merge, delete the task branch.
 
 ## Project structure
 - `research/mission.md` — the binding mission document.
