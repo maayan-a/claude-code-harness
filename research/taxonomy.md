@@ -47,6 +47,19 @@ The starting domains in `mission.md` (section 5) are only a search starting poin
 | End-to-end testing of web apps | C-002 | 1 |
 | Building MCP servers | C-003 | 1 |
 | Encouraging the user to check answers before acting | C-004 | 1 |
+| Whole development methodology bundles | C-006, C-016 | 2 |
+| Forcing / bootstrapping skill usage | C-007, C-008 | 2 |
+| Requirements discovery and decision interviews | C-009, C-025 | 2 |
+| Planning (execution plans, decision maps) | C-010, C-026 | 2 |
+| Plan execution via subagents, handoffs | C-011, C-021, C-024 | 2 |
+| Test-driven development | C-012, C-017 | 2 |
+| Debugging | C-013, C-018 | 2 |
+| Verification before claiming completion | C-014 | 2 |
+| Testing skills against a no-skill baseline | C-001, C-005, C-015 | 1–2 |
+| Module and interface design | C-019 | 2 |
+| Code review against standards and spec | C-020 | 2 |
+| Primary-source research in background | C-022 | 2 |
+| Session retrospective, improving the setup | C-023 | 2 |
 
 ### Top-level categories
 <!-- Filled in during phase 4 -->

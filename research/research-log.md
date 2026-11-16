@@ -14,6 +14,18 @@ One entry per session or batch, newest first.
 
 ---
 
+## 2026-11-16 — Batch 2: Superpowers and Matt Pocock Skills
+- Sources inspected: S-014 to S-033 (README and 9 skills/hooks from Superpowers; README and 10 skills from Pocock).
+- Key findings (details in `references/repositories/superpowers-vs-pocock-skills.md`):
+  - Two opposite philosophies: Superpowers is mandatory and heavy (bootstrap injected every session, "even a 1% chance" rule); Pocock is small, composable, and mostly user-invoked.
+  - Neither repository publishes quantitative evidence. Superpowers' eval repo (`superpowers-evals`) was not reachable (G-010).
+  - Six overlapping responsibilities to compare in the evaluation: TDD, debugging, code review, requirements, planning, skill writing.
+  - Strongest practices for the agent-managed goal: ledger file and file-based handoffs (C-011), explicit stop conditions (C-011), batched decisions with recommended answers (C-025), decision tickets with HITL/AFK types (C-026), retro that turns rules into deterministic checks (C-023).
+  - Loaded skill sizes differ by an order of magnitude for equivalent skills — token cost must be measured.
+- Decisions: none.
+- New gaps: G-009 to G-012.
+- Remaining work: Batch 3 — Spec Kit, BMAD Method, GSD.
+
 ## 2026-11-16 — Language change
 - Decisions: Everything is in English — project files and chat. All project files were translated from Hebrew to English (user decision).
 
