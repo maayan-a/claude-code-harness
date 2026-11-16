@@ -1,11 +1,11 @@
-# אנשים וארגונים
+# People and Organizations
 
-## ארגונים
+## Organizations
 
-| שם | סוג | תחום רלוונטי | קישור | מקורות | הערות |
+| Name | Type | Relevant area | Link | Sources | Notes |
 |---|---|---|---|---|---|
 
-## אנשים
+## People
 
-| שם | שיוך | תחום רלוונטי | קישור | מקורות | הערות |
+| Name | Affiliation | Relevant area | Link | Sources | Notes |
 |---|---|---|---|---|---|

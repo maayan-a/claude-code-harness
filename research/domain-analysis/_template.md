@@ -1,26 +1,26 @@
-# ניתוח תחום: <שם התחום>
+# Domain Analysis: <Domain name>
 
-- תאריך עדכון אחרון:
-- מנות מחקר רלוונטיות:
-- מקורות: <מזהי S-###>
+- Last updated:
+- Relevant research batches:
+- Sources: <S-### IDs>
 
-## בעיות שהתחום מטפל בהן
+## Problems addressed
 
-## גישות שנמצאו
-<!-- לכל גישה: תיאור, דוגמאות לרכיבים (מזהי C-###), סיווג בשלות -->
+## Discovered approaches
+<!-- For each approach: description, example components (C-### IDs), maturity level -->
 
-## הרכיבים הטובים ביותר
+## Best components
 
-## השוואת חלופות
+## Comparison of alternatives
 
-| אחריות | רכיב | יתרונות | חסרונות | עלות טוקנים | בשלות |
+| Responsibility | Component | Strengths | Weaknesses | Token cost | Maturity |
 |---|---|---|---|---|---|
 
-## חפיפות
+## Overlaps
 
-## יכולות חסרות
+## Missing capabilities
 
-## מגבלות
+## Limitations
 
-## המלצות ראשוניות
-<!-- לא החלטות סופיות -->
+## Preliminary recommendations
+<!-- Not final decisions -->

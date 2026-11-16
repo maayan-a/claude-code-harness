@@ -1,73 +1,73 @@
-# מנגנוני ההרחבה של Claude Code — ממצאים ממנה 1
+# Claude Code Extension Mechanisms — Batch 1 Findings
 
-- מקורות: S-001 עד S-008 (ראו `research/sources.md`)
-- תאריך גישה: 2026-11-16
-- רישיון: תיעוד Anthropic. נשמרים כאן רק סיכום וציטוטים קצרים, עם קישור למקור.
+- Sources: S-001 to S-008 (see `research/sources.md`)
+- Accessed: 2026-11-16
+- License: Anthropic documentation. Only summaries and short quotes are kept here, with links to the source.
 
-ממצאים שמשפיעים ישירות על תכנון ה-Harness. כל ממצא מסומן כ**עובדה** (מתועד במקור) או כ**הסקה** (שלי).
+Findings that directly affect harness design. Each finding is marked **Fact** (documented in the source) or **Inference** (mine).
 
 ---
 
-## 1. הוראות הן בקשה; Hooks הם אכיפה
+## 1. Instructions are requests; hooks are enforcement
 
-- **עובדה:** "An instruction like 'never edit `.env`' in CLAUDE.md or a skill is a request, not a guarantee. A `PreToolUse` hook that blocks the edit is enforcement." (S-007)
-- **עובדה:** CLAUDE.md ו-auto memory נטענים כ-context, "not enforced configuration" (S-006).
-- **עובדה:** Hook שנכשל לא חוסם כברירת מחדל — "a policy hook with a wrong path or a crashing script then lets everything through". לחסימה במקרה כשל: `"onFailure": "block"` (S-003).
-- **עובדה:** "use the permission system rather than a hook to enforce a hard allow or deny" (S-003).
-- **הסקה:** כללים קריטיים ב-Harness (אבטחה, מניעת פעולות הרסניות) צריכים להיות בהרשאות או ב-Hooks שנכשלים בצורה סגורה, ולא רק בהוראות.
+- **Fact:** "An instruction like 'never edit `.env`' in CLAUDE.md or a skill is a request, not a guarantee. A `PreToolUse` hook that blocks the edit is enforcement." (S-007)
+- **Fact:** CLAUDE.md and auto memory are loaded as context, "not enforced configuration" (S-006).
+- **Fact:** A failing hook does not block by default — "a policy hook with a wrong path or a crashing script then lets everything through". To block on failure: `"onFailure": "block"` (S-003).
+- **Fact:** "use the permission system rather than a hook to enforce a hard allow or deny" (S-003).
+- **Inference:** Critical harness rules (security, preventing destructive actions) must live in permissions or in hooks that fail closed — not only in instructions.
 
-## 2. עלות Context לפי מנגנון
+## 2. Context cost by mechanism
 
-| מנגנון | מתי נטען | עלות | מקור |
+| Mechanism | When it loads | Cost | Source |
 |---|---|---|---|
-| CLAUDE.md | תחילת סשן, תוכן מלא | בכל בקשה. יעד: פחות מ-200 שורות לקובץ | S-006, S-007 |
-| `.claude/rules/` עם `paths` | כשנוגעים בקובץ תואם | רק כשרלוונטי | S-006 |
-| Skill | תיאור בתחילת סשן; תוכן מלא כשמופעל | נמוכה. `description` + `when_to_use` נחתכים ב-1,536 תווים | S-001, S-007 |
-| Skill עם `disable-model-invocation: true` | רק כשהמשתמש מפעיל | אפס עד להפעלה | S-001, S-007 |
-| Subagent | כשמופעל | context נפרד; אזהרה כשסך התיאורים עובר 15,000 טוקנים | S-002, S-007 |
-| MCP | שמות כלים בתחילת סשן; schemas לפי צורך (tool search) | נמוכה עד שימוש. אזהרה מעל 10,000 טוקנים של פלט כלי | S-005, S-007 |
-| Hook | באירוע | אפס, אלא אם מחזיר פלט | S-007 |
-| Plugin מופעל | בכל סשן | שמות ותיאורים של כל ה-Skills וה-Agents שבו נכנסים ל-context בכל turn | S-004 |
+| CLAUDE.md | Session start, full content | Every request. Target: under 200 lines per file | S-006, S-007 |
+| `.claude/rules/` with `paths` | When a matching file is touched | Only when relevant | S-006 |
+| Skill | Description at session start; full content when invoked | Low. `description` + `when_to_use` truncated at 1,536 characters | S-001, S-007 |
+| Skill with `disable-model-invocation: true` | Only when the user invokes it | Zero until invoked | S-001, S-007 |
+| Subagent | When spawned | Separate context; warning when total descriptions exceed 15,000 tokens | S-002, S-007 |
+| MCP | Tool names at session start; schemas on demand (tool search) | Low until used. Warning above 10,000 tokens of tool output | S-005, S-007 |
+| Hook | On its event | Zero, unless it returns output | S-007 |
+| Enabled plugin | Every session | Names and descriptions of all its skills and agents are in context every turn | S-004 |
 
-- **עובדה:** אחרי compaction, Skills שהופעלו נשמרים עד "the first 5,000 tokens of each", בתקציב משותף של 25,000 טוקנים (S-001).
-- **עובדה:** `/context all` מציג כמה טוקנים כל כלי MCP צורך (S-007).
-- **הסקה:** לכל רכיב ב-Harness יש עלות קבועה (התיאור שלו) גם כשלא משתמשים בו. יש למדוד את העלות הזו כחלק מההערכה.
+- **Fact:** After compaction, invoked skills keep "the first 5,000 tokens of each", within a combined budget of 25,000 tokens (S-001).
+- **Fact:** `/context all` shows how many tokens each MCP tool uses (S-007).
+- **Inference:** Every harness component has a fixed cost (its description) even when unused. This cost must be measured as part of the evaluation.
 
-## 3. יכולות מובנות שכבר קיימות ב-baseline
+## 3. Built-in capabilities already in the baseline
 
-- **עובדה:** Subagents מובנים: `Explore` (קריאה בלבד), `Plan` (מחקר במצב תכנון), `general-purpose` (S-002).
-- **עובדה:** Skills מובנים: `/code-review`, `/batch`, `/debug` (S-007).
-- **עובדה:** Auto memory — הערות ש-Claude כותב בעצמו, נטען בכל סשן (200 השורות הראשונות או 25KB) (S-006).
-- **עובדה:** Dynamic workflows — סקריפט ש-Claude כותב ומריץ הרבה subagents, עם אפשרות לאימות צולב של ממצאים (S-007).
-- **הסקה:** רכיב חיצוני שמכפיל יכולת מובנת צריך להוכיח שיפור **מעבר** לה. ה-baseline בהשוואה הוא Claude Code עם היכולות המובנות האלה.
+- **Fact:** Built-in subagents: `Explore` (read-only), `Plan` (research in plan mode), `general-purpose` (S-002).
+- **Fact:** Bundled skills: `/code-review`, `/batch`, `/debug` (S-007).
+- **Fact:** Auto memory — notes Claude writes itself, loaded every session (first 200 lines or 25KB) (S-006).
+- **Fact:** Dynamic workflows — a script Claude writes that runs many subagents, with optional cross-checking of findings (S-007).
+- **Inference:** An external component that duplicates a built-in capability must prove improvement **beyond** it. The comparison baseline is Claude Code with these built-ins.
 
-## 4. Subagents — בידוד והאצלה
+## 4. Subagents — isolation and delegation
 
-- **עובדה:** "Each subagent starts with a fresh, isolated context window. It doesn't see your conversation history, the skills you've already invoked, or the files Claude has already read." (S-002)
-- **עובדה:** Subagent יכול להפעיל subagents עד שלוש שכבות מתחת לשיחה הראשית; עד 20 במקביל כברירת מחדל (S-002).
-- **עובדה:** שדות frontmatter רלוונטיים: `tools`, `model`, `permissionMode`, `isolation: worktree`, `memory`, `skills`, `hooks` (S-002).
-- **עובדה:** Plugin subagents לא תומכים ב-`hooks`, `mcpServers`, `permissionMode` (S-002).
-- **הסקה:** העברת משימה ל-subagent דורשת prompt שעומד בפני עצמו. זו נקודת סיכון לאיבוד מידע (תחום A ו-H).
+- **Fact:** "Each subagent starts with a fresh, isolated context window. It doesn't see your conversation history, the skills you've already invoked, or the files Claude has already read." (S-002)
+- **Fact:** A subagent can spawn subagents up to three layers below the main conversation; up to 20 concurrently by default (S-002).
+- **Fact:** Relevant frontmatter fields: `tools`, `model`, `permissionMode`, `isolation: worktree`, `memory`, `skills`, `hooks` (S-002).
+- **Fact:** Plugin subagents don't support `hooks`, `mcpServers`, `permissionMode` (S-002).
+- **Inference:** Handing a task to a subagent requires a self-contained prompt. This is a risk point for information loss (domains A and H).
 
-## 5. שדות לא מוכרים נכשלים בשקט
+## 5. Unknown fields fail silently
 
-- **עובדה:** גם ב-Skills וגם ב-Subagents, שדות frontmatter לא מוכרים מתעלמים מהם בלי שגיאה — "misspelled field names fail silently" (S-001, S-002).
-- **הסקה:** ה-Harness צריך בדיקה אוטומטית שמאמתת את ה-frontmatter של הרכיבים שלו.
+- **Fact:** In both skills and subagents, unrecognized frontmatter fields are ignored without an error — "misspelled field names fail silently" (S-001, S-002).
+- **Inference:** The harness needs an automated check that validates its components' frontmatter.
 
 ## 6. AGENTS.md
 
-- **עובדה:** Claude Code קורא `AGENTS.md` רק כשאין `CLAUDE.md` בתיקייה הנוכחית או מעליה. כדי להשתמש בשניהם: לייבא את `AGENTS.md` מתוך `CLAUDE.md` (S-006).
+- **Fact:** Claude Code reads `AGENTS.md` only when there is no `CLAUDE.md` in the working directory or above it. To use both: import `AGENTS.md` from `CLAUDE.md` (S-006).
 
-## 7. סדר מומלץ לבניית הגדרות
+## 7. Recommended order for building a setup
 
-- **עובדה:** התיעוד ממליץ להוסיף מנגנונים לפי טריגרים, למשל: "Claude gets a convention or command wrong twice → Add it to CLAUDE.md"; "You want something to happen every time without asking → Write a hook" (S-007).
-- **הסקה:** זה תואם את עקרון "המינימום עם ההשפעה הגדולה ביותר" (שאלה 10 ב-mission.md): להוסיף רכיב רק כשיש בעיה שנצפתה.
+- **Fact:** The docs recommend adding mechanisms in response to triggers, e.g.: "Claude gets a convention or command wrong twice → Add it to CLAUDE.md"; "You want something to happen every time without asking → Write a hook" (S-007).
+- **Inference:** This matches the "smallest high-impact version" principle (question 10 in mission.md): add a component only when there is an observed problem.
 
-## 8. עקרונות כתיבת Skills (S-008)
+## 8. Skill authoring principles (S-008)
 
-- תמציתיות: "Default assumption: Claude is already very smart"; גוף `SKILL.md` פחות מ-500 שורות.
-- דרגות חופש מותאמות לרגישות המשימה: הוראות כלליות לעבודה פתוחה, סקריפט מדויק לפעולה שבירה.
-- הפניות לעומק של רמה אחת בלבד מתוך `SKILL.md`.
-- תיאור בגוף שלישי, עם "מה" וגם "מתי".
-- לולאות משוב: validator ← תיקון ← חזרה.
-- **"Create evaluations BEFORE writing extensive documentation."** ← C-005
+- Conciseness: "Default assumption: Claude is already very smart"; `SKILL.md` body under 500 lines.
+- Degrees of freedom matched to task fragility: general instructions for open work, exact scripts for fragile operations.
+- References only one level deep from `SKILL.md`.
+- Descriptions in third person, covering both "what" and "when".
+- Feedback loops: validator → fix → repeat.
+- **"Create evaluations BEFORE writing extensive documentation."** → C-005

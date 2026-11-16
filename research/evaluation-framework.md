@@ -1,79 +1,79 @@
-# מסגרת הערכה
+# Evaluation Framework
 
-## 1. שדות רשומת רכיב (`components.csv`)
+## 1. Component record fields (`components.csv`)
 
-| עמודה | תיאור | ערכים |
+| Column | Description | Values |
 |---|---|---|
-| `id` | מזהה רכיב | `C-001`... |
-| `component_name` | השם המדויק | |
-| `original_source` | URL של הריפו / המקור | |
-| `original_author` | יוצר או ארגון מאומת | `לא ידוע` אם לא אומת |
-| `component_type` | סוג הרכיב (ציר 1) | `Skill` / `Agent` / `Hook` / `MCP` / `CLI` / `Framework` / `Tool` / `Methodology` / `Instructions` |
-| `domain` | תחום רלוונטי (ציר 2) | |
-| `subcategory` | האחריות הספציפית | |
-| `problem_solved` | איזו בעיה הוא פותר | |
-| `how_it_works` | המימוש או התהליך בפועל | |
-| `inputs` | איזה מידע הוא צריך | |
-| `outputs` | מה הוא מפיק | |
-| `dependencies` | כלים או רכיבים נדרשים | |
-| `claude_code_compatibility` | תאימות ל-Claude Code | `direct` / `adaptable` / `incompatible` |
-| `token_overhead` | עלות טוקנים | הערכה או מדידה — לציין איזו |
-| `runtime_overhead` | עלות זמן ריצה | הערכה או מדידה — לציין איזו |
-| `evidence` | ראיות ליעילות | בדיקות, benchmarks, שימוש אמיתי, תיעוד |
-| `maintenance` | גרסאות ופעילות אחרונות | |
-| `license` | רישיון מאומת | |
-| `limitations` | חולשות ידועות | |
-| `overlap` | רכיבים דומים (מזהי C-###) | |
-| `potential_value` | למה הוא עשוי לשפר את ה-Harness | |
-| `maturity` | סיווג בשלות (סעיף 3) | `proven` / `experimental` / `inspiration` / `not-relevant` / `unsuitable` |
-| `parent_component` | Framework שהרכיב שייך אליו | מזהה C-### |
-| `source_ids` | מקורות התומכים ברשומה | מזהי S-### |
-| `date_researched` | תאריך המחקר | YYYY-MM-DD |
-| `notes` | הערות | |
+| `id` | Component ID | `C-001`... |
+| `component_name` | Exact name | |
+| `original_source` | Repository / source URL | |
+| `original_author` | Verified creator or organization | `unknown` if not verified |
+| `component_type` | Component type (axis 1) | `Skill` / `Agent` / `Hook` / `MCP` / `CLI` / `Framework` / `Tool` / `Methodology` / `Instructions` |
+| `domain` | Relevant domain (axis 2) | |
+| `subcategory` | Specific responsibility | |
+| `problem_solved` | What problem it addresses | |
+| `how_it_works` | Actual implementation or workflow | |
+| `inputs` | What information it needs | |
+| `outputs` | What it produces | |
+| `dependencies` | Required tools or components | |
+| `claude_code_compatibility` | Compatibility with Claude Code | `direct` / `adaptable` / `incompatible` |
+| `token_overhead` | Token cost | Estimate or measurement — state which |
+| `runtime_overhead` | Runtime cost | Estimate or measurement — state which |
+| `evidence` | Evidence of effectiveness | Tests, benchmarks, real-world use, documentation |
+| `maintenance` | Recent releases and activity | |
+| `license` | Verified license | |
+| `limitations` | Known weaknesses | |
+| `overlap` | Similar components (C-### IDs) | |
+| `potential_value` | Why it might improve the harness | |
+| `maturity` | Maturity level (section 3) | `proven` / `experimental` / `inspiration` / `not-relevant` / `unsuitable` |
+| `parent_component` | Framework the component belongs to | C-### ID |
+| `source_ids` | Sources supporting the record | S-### IDs |
+| `date_researched` | Research date | YYYY-MM-DD |
+| `notes` | Notes | |
 
-מידע לא ידוע מסומן `לא ידוע`. אין להשאיר שדה ריק כשהמידע נבדק ולא נמצא.
+Unknown information is marked `unknown`. Do not leave a field empty when the information was checked and not found.
 
-## 2. קריטריוני הערכה
+## 2. Evaluation criteria
 
-1. איכות הנדסית
-2. מקוריות
-3. תועלת מעשית
-4. פעילות תחזוקה
-5. איכות תיעוד
-6. ראיות ליעילות
-7. תאימות ל-Claude Code
-8. קלות שילוב
-9. יעילות טוקנים
-10. עלות ריצה ועלות כספית
-11. השלכות אבטחה
-12. רישיון ומגבלות שימוש חוזר
-13. כפילות עם רכיבים אחרים
+1. Engineering quality
+2. Originality
+3. Practical usefulness
+4. Maintenance activity
+5. Documentation quality
+6. Evidence of effectiveness
+7. Compatibility with Claude Code
+8. Ease of integration
+9. Token efficiency
+10. Runtime and financial cost
+11. Security implications
+12. License and reuse restrictions
+13. Duplication with other components
 
-### סולם ציון
-<!-- ייקבע אחרי שיצטברו מספיק רכיבים להשוואה -->
+### Scoring scale
+<!-- To be defined once enough components have been collected for comparison -->
 
-## 3. סיווג בשלות
+## 3. Maturity levels
 
-| ערך | משמעות |
+| Value | Meaning |
 |---|---|
-| `proven` | מוכח ובשל — ראיות חזקות ושימוש רחב |
-| `experimental` | מבטיח אך ניסיוני |
-| `inspiration` | השראה בלבד — רעיון שימושי, לא לשימוש ישיר |
-| `not-relevant` | לא רלוונטי |
-| `unsuitable` | מסוכן או לא מתאים |
+| `proven` | Proven and mature — strong evidence and wide use |
+| `experimental` | Promising but experimental |
+| `inspiration` | Useful inspiration only — a good idea, not for direct use |
+| `not-relevant` | Not relevant |
+| `unsuitable` | Potentially dangerous or unsuitable |
 
-## 4. הערכת ה-Harness כולו (baseline מול Harness)
+## 4. Evaluating the harness as a whole (baseline vs. harness)
 
-### עקרון
-Claude Code baseline ו-Claude Code עם ה-Harness פותרים את **אותן משימות** ב**תנאים דומים**.
+### Principle
+Claude Code baseline and Claude Code with the harness solve **the same tasks** under **comparable conditions**.
 
-### מדדים
-נכונות · כיסוי בדיקות · אבטחה · תחזוקתיות · צריכת טוקנים · זמן · עלות.
+### Metrics
+Correctness · test coverage · security · maintainability · token usage · time · cost.
 
-### משימות מבחן
-<!-- ייקבע במנת ההערכה וה-Benchmarking -->
+### Test tasks
+<!-- To be defined in the evaluation and benchmarking batch -->
 
-### מתודולוגיה
-<!-- תנאי השוואה, חזרות, אמינות סטטיסטית, בקרה על משתנים -->
+### Methodology
+<!-- Comparison conditions, repetitions, statistical reliability, control of variables -->
 
-## 5. מגבלות ידועות
+## 5. Known limitations

@@ -1,13 +1,13 @@
-# מועמדים לשילוב
+# Integration Candidates
 
-רכיבים שעברו הערכה ונשקלים לשילוב ב-Harness. מזהי הרכיבים לפי `components.csv`.
+Components that have been evaluated and are being considered for the harness. Component IDs follow `components.csv`.
 
-## סטטוסים
-- `נבחן` / `מומלץ` / `אושר` / `נדחה` / `נדחה זמנית`
+## Statuses
+- `evaluating` / `recommended` / `approved` / `rejected` / `deferred`
 
-## מועמדים
+## Candidates
 
-| Component ID | שם | סוג | צורך שהוא פותר | חלופות | סטטוס | נימוק | תאריך החלטה |
+| Component ID | Name | Type | Need it addresses | Alternatives | Status | Rationale | Decision date |
 |---|---|---|---|---|---|---|---|
 
-## יומן החלטות
+## Decision log

@@ -1,77 +1,77 @@
-# Claude Code Harness — פרויקט מחקר
+# Claude Code Harness — Research Project
 
-## מטרה
-לחקור את האקוסיסטם סביב Claude Code ולבנות בהמשך **AI Software Engineering Harness** איכותי: שילוב מבוקר של Skills, Agents, Hooks, שרתי MCP, כלים ותהליכי עבודה, שמשפר באופן מדיד את איכות הנדסת התוכנה לעומת Claude Code ללא Harness.
+## Goal
+Research the ecosystem around Claude Code and later build a high-quality **AI Software Engineering Harness**: a controlled combination of Skills, Agents, Hooks, MCP servers, tools, and workflows that measurably improves software engineering quality compared to Claude Code without a harness.
 
-יעד נוסף: מתודולוגיית פיתוח שמנוהלת על ידי סוכנים — הסוכנים מנהלים את התהליך, שומרים ומעדכנים את הידע ומבצעים את העבודה, והאדם נדרש רק לקבלת החלטות ולסקירה.
+Additional goal: an agent-managed development methodology — agents manage the process, store and update knowledge, and do the work, while the human only makes decisions and reviews.
 
-המטרה איננה ה-Harness הגדול ביותר, אלא האפקטיבי ביותר.
+The goal is not the biggest harness, but the most effective one.
 
-## מסמכי יסוד
-- [research/mission.md](research/mission.md) — משימת המחקר המלאה: מקורות, תחומים, תוצרים ושאלות.
-- [CLAUDE.md](CLAUDE.md) — כללי העבודה המחייבים.
+## Core documents
+- [research/mission.md](research/mission.md) — the full research mission: sources, domains, deliverables, and questions.
+- [CLAUDE.md](CLAUDE.md) — the binding working rules.
 
-## מתודולוגיה בקצרה
-- גילוי לרוחב לפני סיווג; הטקסונומיה נגזרת מהממצאים.
-- חילוץ רכיבים בודדים מתוך ריפואים, לא רק הערכת ריפואים שלמים.
-- מקורות מקוריים, אימות טענות, וסימון מפורש של מידע לא ידוע.
-- קריאה מהווב בלבד, בלי שכפול ריפואים ובלי התקנות.
-- עבודה במנות, עם תיעוד ב-[research-log.md](research/research-log.md).
+## Methodology in brief
+- Discover broadly before classifying; the taxonomy emerges from the findings.
+- Extract individual components from repositories, not just evaluate whole repositories.
+- Original sources, verified claims, and explicit marking of unknown information.
+- Web reading only — no cloning repositories and no installations.
+- Work in batches, logged in [research-log.md](research/research-log.md).
 
-## שלבי הפרויקט
+## Project phases
 
-| # | שלב | תוצר עיקרי | סטטוס |
+| # | Phase | Main output | Status |
 |---|---|---|---|
-| 0 | הקמת סביבת המחקר | מבנה, כללים, מסמך משימה | הושלם |
-| 1 | מקורות פתיחה | `sources.md` | בתהליך |
-| 2 | חילוץ רכיבים | `components.csv` | טרם התחיל |
-| 3 | הרחבת גילוי | `sources.md`, `people-and-organizations.md` | טרם התחיל |
-| 4 | סיווג | `taxonomy.md` | טרם התחיל |
-| 5 | ניתוח תחומים | `domain-analysis/` | טרם התחיל |
-| 6 | ניתוח כיסוי | `research-gaps.md` | טרם התחיל |
-| 7 | המלצות ראשוניות | `integration-candidates.md` | טרם התחיל |
-| 8 | מדידת Baseline | `benchmarks/baseline/` | טרם התחיל |
-| 9 | בניית ה-Harness ומדידתו | `benchmarks/harness/` | טרם התחיל |
+| 0 | Set up the research environment | Structure, rules, mission document | Done |
+| 1 | Initial sources | `sources.md` | In progress |
+| 2 | Component extraction | `components.csv` | Not started |
+| 3 | Discovery expansion | `sources.md`, `people-and-organizations.md` | Not started |
+| 4 | Classification | `taxonomy.md` | Not started |
+| 5 | Domain analysis | `domain-analysis/` | Not started |
+| 6 | Coverage analysis | `research-gaps.md` | Not started |
+| 7 | Preliminary recommendations | `integration-candidates.md` | Not started |
+| 8 | Baseline measurement | `benchmarks/baseline/` | Not started |
+| 9 | Build and measure the harness | `benchmarks/harness/` | Not started |
 
-שלבים 1–7 הם מחקר בלבד. שלבים 8–9 יתחילו רק אחרי החלטה מפורשת.
+Phases 1–7 are research only. Phases 8–9 start only after an explicit decision.
 
-## תוכנית מנות (שלבים 1–2)
+## Batch plan (phases 1–2)
 
-| מנה | תוכן | סטטוס |
+| Batch | Content | Status |
 |---|---|---|
-| 1 | תיעוד רשמי של Claude Code ו-`anthropics/skills` — אימות הגדרות סוגי הרכיבים | הושלם (2026-11-16) |
-| 2 | Superpowers, Matt Pocock Skills | טרם התחיל |
-| 3 | Spec Kit, BMAD Method, GSD | טרם התחיל |
-| 4 | Aider, Cline, Roo Code, AGENTS.md | טרם התחיל |
-| 5 | קטלוגים: Awesome Cursor Rules, Awesome Claude Skills, Awesome Context Engineering | טרם התחיל |
-| 6 | הערכה ו-Benchmarking | טרם התחיל |
-| 7 | אבטחה | טרם התחיל |
-| 8 | בדיקות והנדסת איכות | טרם התחיל |
-| 9 | ארכיטקטורה ואיכות תכנון | טרם התחיל |
-| 10 | Observability, ביצועים ו-Tracing של סוכנים | טרם התחיל |
+| 1 | Claude Code official docs and `anthropics/skills` — verify component type definitions | Done (2026-11-16) |
+| 2 | Superpowers, Matt Pocock Skills | Not started |
+| 3 | Spec Kit, BMAD Method, GSD | Not started |
+| 4 | Aider, Cline, Roo Code, AGENTS.md | Not started |
+| 5 | Catalogs: Awesome Cursor Rules, Awesome Claude Skills, Awesome Context Engineering | Not started |
+| 6 | Evaluation and benchmarking | Not started |
+| 7 | Security | Not started |
+| 8 | Testing and quality engineering | Not started |
+| 9 | Architecture and design quality | Not started |
+| 10 | Observability, performance, and agent tracing | Not started |
 
-## ניווט
+## Navigation
 
 ```text
 claude-code-harness/
-├── README.md                     # קובץ זה
-├── CLAUDE.md                     # כללי עבודה
+├── README.md                     # This file
+├── CLAUDE.md                     # Working rules
 ├── research/
-│   ├── mission.md                # משימת המחקר
-│   ├── sources.md                # רישום מקורות שנבדקו
-│   ├── components.csv            # מלאי רכיבים
-│   ├── taxonomy.md               # סוגי רכיבים וקטגוריות
+│   ├── mission.md                # Research mission
+│   ├── sources.md                # Registry of inspected sources
+│   ├── components.csv            # Component inventory
+│   ├── taxonomy.md               # Component types and categories
 │   ├── people-and-organizations.md
-│   ├── evaluation-framework.md   # שדות, קריטריונים ומתודולוגיית השוואה
+│   ├── evaluation-framework.md   # Fields, criteria, comparison methodology
 │   ├── integration-candidates.md
 │   ├── research-gaps.md
 │   ├── research-log.md
-│   └── domain-analysis/          # ניתוח לכל תחום
-├── references/                   # קטעים רלוונטיים ממקורות
+│   └── domain-analysis/          # One analysis per domain
+├── references/                   # Relevant excerpts from sources
 │   ├── repositories/
 │   ├── articles/
 │   └── documentation/
 └── benchmarks/
-    ├── baseline/                 # Claude Code ללא Harness
-    └── harness/                  # Claude Code עם Harness
+    ├── baseline/                 # Claude Code without the harness
+    └── harness/                  # Claude Code with the harness
 ```

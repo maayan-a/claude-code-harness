@@ -1,55 +1,55 @@
-# טקסונומיה
+# Taxonomy
 
-שני צירי סיווג נפרדים (ראו CLAUDE.md, סעיף 6).
+Two separate classification axes (see CLAUDE.md, section 6).
 
 ---
 
-## ציר 1 — סוגי רכיבים
+## Axis 1 — Component types
 
-מה הרכיב **טכנית**. ההגדרות של Skill, Agent, Hook ו-MCP אומתו מול התיעוד הרשמי (מנה 1).
+What a component is **technically**. The definitions of Skill, Agent, Hook, and MCP were verified against the official documentation (batch 1).
 
-| ערך | הגדרה | מקור | סטטוס |
+| Value | Definition | Source | Status |
 |---|---|---|---|
-| `Skill` | תיקייה עם `SKILL.md` (YAML frontmatter + הוראות Markdown) וקבצים נלווים. התיאור נטען ל-context בכל סשן; התוכן המלא נטען רק כשה-Skill מופעל — על ידי Claude לפי התאמה לתיאור, או על ידי המשתמש ב-`/name`. Slash commands מוזגו לתוך Skills | S-001, S-007 | אומת |
-| `Agent` | Subagent: קובץ Markdown עם frontmatter, שגופו הוא ה-system prompt. רץ ב-context window נפרד, בלי היסטוריית השיחה, עם כלים והרשאות משלו, ומחזיר סיכום | S-002, S-007 | אומת |
-| `Hook` | handler שה-harness מריץ אוטומטית באירוע במחזור החיים (למשל `PreToolUse`, `Stop`). חמישה סוגים: `command`, `http`, `mcp_tool`, `prompt`, `agent`. דטרמיניסטי — רץ בלי ש-Claude מחליט | S-003, S-007 | אומת |
-| `MCP` | שרת Model Context Protocol שחושף ל-Claude כלים ונתונים של מערכת חיצונית (tools / prompts / resources) | S-005, S-007 | אומת |
-| `CLI` | כלי שורת פקודה ש-Claude מפעיל דרך Bash | הגדרת הפרויקט | הוגדר |
-| `Framework` | מערכת או אוסף שמשלב כמה סוגי רכיבים | הגדרת הפרויקט | הוגדר |
-| `Tool` | תוכנה או שירות מחוץ ל-Claude Code | הגדרת הפרויקט | הוגדר |
-| `Methodology` | שיטת עבודה או פרקטיקה הנדסית, ללא מימוש תוכנה מחייב | הגדרת הפרויקט | הוגדר |
-| `Instructions` | קובץ הוראות קבוע שנטען ל-context בלי הפעלה מפורשת: CLAUDE.md, `.claude/rules/`, AGENTS.md, output style, סט כללים (למשל Cursor rules) | S-006, S-007; החלטה 2026-11-16 (G-003) | הוגדר |
+| `Skill` | A folder with `SKILL.md` (YAML frontmatter + Markdown instructions) and supporting files. The description is loaded into context every session; the full content loads only when the skill is invoked — by Claude, matching the description, or by the user via `/name`. Slash commands have been merged into skills | S-001, S-007 | Verified |
+| `Agent` | A subagent: a Markdown file with frontmatter whose body is the system prompt. Runs in a separate context window, without the conversation history, with its own tools and permissions, and returns a summary | S-002, S-007 | Verified |
+| `Hook` | A handler the harness runs automatically on a lifecycle event (e.g. `PreToolUse`, `Stop`). Five types: `command`, `http`, `mcp_tool`, `prompt`, `agent`. Deterministic — runs without Claude deciding | S-003, S-007 | Verified |
+| `MCP` | A Model Context Protocol server that exposes tools and data of an external system to Claude (tools / prompts / resources) | S-005, S-007 | Verified |
+| `CLI` | A command-line tool Claude invokes via Bash | Project definition | Defined |
+| `Framework` | A system or collection combining several component types | Project definition | Defined |
+| `Tool` | Software or a service outside Claude Code | Project definition | Defined |
+| `Methodology` | A working method or engineering practice, with no required software implementation | Project definition | Defined |
+| `Instructions` | A standing instruction file loaded into context without explicit invocation: CLAUDE.md, `.claude/rules/`, AGENTS.md, output styles, rule sets (e.g. Cursor rules) | S-006, S-007; decision 2026-11-16 (G-003) | Defined |
 
-### מקרי גבול
+### Edge cases
 
-| מקרה | מה זה לפי התיעוד | כלל סיווג בפרויקט |
+| Case | What it is per the docs | Classification rule in this project |
 |---|---|---|
-| Plugin | "שכבת האריזה": תיקייה עם manifest שמאגדת Skills, Agents, Hooks ושרתי MCP ליחידה אחת שמותקנת מ-marketplace (S-004, S-007) | Plugin אינו סוג רכיב. Plugin שמאגד כמה סוגים נרשם כ-`Framework`, וכל רכיב בתוכו נרשם בנפרד עם `parent_component` |
-| Slash command (`.claude/commands/`) | "Custom commands have been merged into skills" (S-001) | נרשם כ-`Skill` |
-| Skill עם `context: fork` | Skill שרץ בתוך Subagent (S-001) | נרשם כ-`Skill`, עם הערה בשדה `how_it_works` |
-| CLAUDE.md, `.claude/rules/`, AGENTS.md | קובצי הוראות שנטענים בתחילת סשן או לפי נתיב (S-006) | נרשם כ-`Instructions` |
-| Output style | הוראות לתפקיד, טון ופורמט לכל הסשן (S-007) | נרשם כ-`Instructions` |
-| יכולות מובנות (Explore, Plan, `/code-review`, `/debug`, `/batch`, auto memory, dynamic workflows) | חלק מ-Claude Code עצמו (S-002, S-007) | לא נרשמות כרכיבים. הן חלק מה-baseline, ומתועדות ב-`references/documentation/claude-code-extension-mechanisms.md` |
+| Plugin | "The packaging layer": a folder with a manifest that bundles Skills, Agents, Hooks, and MCP servers into one unit installed from a marketplace (S-004, S-007) | A plugin is not a component type. A plugin bundling several types is recorded as a `Framework`, and each component in it is recorded separately with `parent_component` |
+| Slash command (`.claude/commands/`) | "Custom commands have been merged into skills" (S-001) | Recorded as `Skill` |
+| Skill with `context: fork` | A skill that runs inside a subagent (S-001) | Recorded as `Skill`, noted in `how_it_works` |
+| CLAUDE.md, `.claude/rules/`, AGENTS.md | Instruction files loaded at session start or by path (S-006) | Recorded as `Instructions` |
+| Output style | Instructions for role, tone, and format for the whole session (S-007) | Recorded as `Instructions` |
+| Built-in capabilities (Explore, Plan, `/code-review`, `/debug`, `/batch`, auto memory, dynamic workflows) | Part of Claude Code itself (S-002, S-007) | Not recorded as components. They are part of the baseline, documented in `references/documentation/claude-code-extension-mechanisms.md` |
 
 ---
 
-## ציר 2 — תחומים וקטגוריות
+## Axis 2 — Domains and categories
 
-**הקטגוריות נגזרות מהמחקר** (שלב 4) ואינן נקבעות מראש. יעד: 8–12 קטגוריות עליונות, בלי לכפות את המספר.
+**Categories are derived from the research** (phase 4) and are not set in advance. Target: 8–12 top-level categories, without forcing the number.
 
-תחומי הפתיחה מ-`mission.md` (סעיף 5) הם נקודת מוצא לחיפוש בלבד.
+The starting domains in `mission.md` (section 5) are only a search starting point.
 
-### אחריויות חוזרות שזוהו
+### Recurring responsibilities identified
 
-| אחריות | רכיבים | מנה |
+| Responsibility | Components | Batch |
 |---|---|---|
-| פיתוח ושיפור Skills עם הערכה מול baseline | C-001, C-005 | 1 |
-| בדיקות E2E לאפליקציות ווב | C-002 | 1 |
-| בניית שרתי MCP | C-003 | 1 |
-| עידוד המשתמש לבדוק תשובות לפני פעולה | C-004 | 1 |
+| Developing and improving skills with evaluation against a baseline | C-001, C-005 | 1 |
+| End-to-end testing of web apps | C-002 | 1 |
+| Building MCP servers | C-003 | 1 |
+| Encouraging the user to check answers before acting | C-004 | 1 |
 
-### קטגוריות עליונות
-<!-- ממולא בשלב 4 -->
+### Top-level categories
+<!-- Filled in during phase 4 -->
 
-### רכיבים חוצי-תחומים
-<!-- ממולא בשלב 4 -->
+### Cross-domain components
+<!-- Filled in during phase 4 -->
